@@ -1,0 +1,189 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>单线多拨提升网速 | 兜里有糖</title><meta name="keywords" content="网络"><meta name="author" content="兜里有糖"><meta name="copyright" content="兜里有糖"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="校园网每个设备限速6M&#x2F;s，想着怎么能提高一下，搜到了单线多拨的教程，今天尝试了一下，成功了，记录下过程。教程1教程2教程3 1. 添加虚拟网卡 安装macvlan12opkg updateopkg install kmod-macvlan 创建并启用虚拟网卡这里创建两个虚拟网卡，即网速变为2倍eth3 为wan口对应的物理网卡veth0为虚拟网卡名称123456# 添加一个类型为macvlan，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="单线多拨提升网速">
+<meta property="og:url" content="https://blog.cwxhmk.top/2022/11/21/program/2022-11-21-network/index.html">
+<meta property="og:site_name" content="兜里有糖">
+<meta property="og:description" content="校园网每个设备限速6M&#x2F;s，想着怎么能提高一下，搜到了单线多拨的教程，今天尝试了一下，成功了，记录下过程。教程1教程2教程3 1. 添加虚拟网卡 安装macvlan12opkg updateopkg install kmod-macvlan 创建并启用虚拟网卡这里创建两个虚拟网卡，即网速变为2倍eth3 为wan口对应的物理网卡veth0为虚拟网卡名称123456# 添加一个类型为macvlan，">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://image.cwxhmk.top/blog/network.jpg">
+<meta property="article:published_time" content="2022-11-21T13:46:00.000Z">
+<meta property="article:modified_time" content="2025-11-17T10:20:48.529Z">
+<meta property="article:author" content="兜里有糖">
+<meta property="article:tag" content="网络">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://image.cwxhmk.top/blog/network.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://blog.cwxhmk.top/2022/11/21/program/2022-11-21-network/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?a14889b83a055b58cc3b9baac0e8d397";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: true
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '单线多拨提升网速',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-11-17 10:20:48'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    })(window)</script><meta name="baidu-site-verification" content="code-DLRo0M1JYB" /><meta name="msvalidate.01" content="68CBEB31DECE622B51F762A579742691" /><meta name="google-site-verification" content="EbiglcFzq1VMWmp5uIo4rPO8dnEVWbr06jCFe_BGHfo" /><link rel="stylesheet" href="/css/person.css"><meta name="generator" content="Hexo 5.1.1"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src= "/img/loading.gif" data-lazy-src="https://image.cwxhmk.top/blog/tou.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">30</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">27</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间线</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 列表</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://image.cwxhmk.top/blog/network.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">兜里有糖</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间线</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 列表</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">单线多拨提升网速</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-11-21T13:46:00.000Z" title="发表于 2022-11-21 13:46:00">2022-11-21</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-11-17T10:20:48.529Z" title="更新于 2025-11-17 10:20:48">2025-11-17</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%BC%96%E7%A8%8B/">编程</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">580</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>1分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="单线多拨提升网速"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span><span class="post-meta-separator">|</span><span class="post-meta-commentcount"><i class="far fa-comments fa-fw post-meta-icon"></i><span class="post-meta-label">评论数:</span><a href="/2022/11/21/program/2022-11-21-network/#post-comment"><span class="waline-comment-count" id="/2022/11/21/program/2022-11-21-network/"></span></a></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>校园网每个设备限速6M/s，想着怎么能提高一下，搜到了单线多拨的教程，今天尝试了一下，成功了，记录下过程。<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_59496782/article/details/121862378">教程1</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/Cx2008Lxl/article/details/127033433">教程2</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/Cx2008Lxl/article/details/123115782">教程3</a></p>
+<h2 id="1-添加虚拟网卡"><a href="#1-添加虚拟网卡" class="headerlink" title="1. 添加虚拟网卡"></a>1. 添加虚拟网卡</h2><ul>
+<li>安装macvlan<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">opkg update</span><br><span class="line">opkg install kmod-macvlan</span><br></pre></td></tr></table></figure></li>
+<li>创建并启用虚拟网卡<br>这里创建两个虚拟网卡，即网速变为2倍<br>eth3 为wan口对应的物理网卡<br>veth0为虚拟网卡名称<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 添加一个类型为macvlan，名字为veth0的虚拟网卡，并通过虚拟链路和eth0.2连接起来</span><br><span class="line">ip link add link eth3 name veth0 type macvlan </span><br><span class="line">ip link add link eth3 name veth1 type macvlan </span><br><span class="line"># 启用创建的veth0网卡</span><br><span class="line">ifconfig veth0 up </span><br><span class="line">ifconfig veth1 up </span><br></pre></td></tr></table></figure>
+输入<code>ifconfig</code>看到<code>veth0</code>和<code>veth1</code>表示成功。<h2 id="2-创建接口"><a href="#2-创建接口" class="headerlink" title="2.创建接口"></a>2.创建接口</h2>进入OpenWrt网页后台，点击网络→接口<br>建议先把已经绑定到上面eth3的wan口删除或者设为开机时不启动，避免虚拟网卡获取不到IP地址<br>添加新接口，设备选择虚拟网卡veth0，校园网是DHCP协议，然后创建接口。<br>设置网关跃点，随便一个值，但不要和其他wan口重复。<br>获取到IP表示成功。   </li>
+</ul>
+<h2 id="3-负载均衡"><a href="#3-负载均衡" class="headerlink" title="3. 负载均衡"></a>3. 负载均衡</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">opkg install mwan3 luci-app-mwan3</span><br></pre></td></tr></table></figure>
+<ul>
+<li>添加接口<br>安装完后到网络→负载均衡界面，把接口、成员、策略里面的配置全部删掉<br>在接口里面新增vwan1，名字要和在网络→接口添加的接口名相同，否则无法匹配接口<br>勾选启用，填入跟踪的IP(223.5.5.5)，接口会ping这个IP检查自己是否在线。其他配置保持默认就行,最下面的跃点数会自动获取，如果显示-表示跃点数重复，修改之前的接口即可。   </li>
+<li>成员配置<br>路由优先发往跃点值较小的接口。跃点值相同的接口，按权重走路由。如果你用的是同一个号，网速相同，推荐相同跃点数，权重1:1，自行斟酌就ok</li>
+<li>策略配置<br>添加一个平衡策略balanced，把前面的所有成员添加进来。</li>
+<li>规则配置<br>用默认的就行</li>
+</ul>
+<p>校园网登录的时候，修改策略配置，一个一个成员选择，然后登录，都登好之后再全部添加到策略里即可</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">兜里有糖</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://blog.cwxhmk.top/2022/11/21/program/2022-11-21-network/">https://blog.cwxhmk.top/2022/11/21/program/2022-11-21-network/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://blog.cwxhmk.top" target="_blank">兜里有糖</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%BD%91%E7%BB%9C/">网络</a></div><div class="post_share"><div class="social-share" data-image="https://image.cwxhmk.top/blog/network.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="waline-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src= "/img/loading.gif" data-lazy-src="https://image.cwxhmk.top/blog/tou.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">兜里有糖</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">30</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">27</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/dlytang"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/dlytang" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="/472548557" target="_blank" title="QQ"><i class="fab fa-qq"></i></a><a class="social-icon" href="mailto:472548557@qq.com" target="_blank" title="QQ"><i class="fab fa-envelope-o"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">欢迎</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%B7%BB%E5%8A%A0%E8%99%9A%E6%8B%9F%E7%BD%91%E5%8D%A1"><span class="toc-number">1.</span> <span class="toc-text">1. 添加虚拟网卡</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%88%9B%E5%BB%BA%E6%8E%A5%E5%8F%A3"><span class="toc-number">2.</span> <span class="toc-text">2.创建接口</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1"><span class="toc-number">3.</span> <span class="toc-text">3. 负载均衡</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2025/06/20/program/2025-06-20-alist/" title="alist转移教程"><img src= "/img/loading.gif" data-lazy-src="https://image.cwxhmk.top/blog/alist.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="alist转移教程"/></a><div class="content"><a class="title" href="/2025/06/20/program/2025-06-20-alist/" title="alist转移教程">alist转移教程</a><time datetime="2025-06-20T16:00:00.000Z" title="发表于 2025-06-20 16:00:00">2025-06-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/06/08/program/2025-06-08-wxhookx64/" title="64位 微信 hook 记录"><img src= "/img/loading.gif" data-lazy-src="https://image.cwxhmk.top/blog/wxhook.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="64位 微信 hook 记录"/></a><div class="content"><a class="title" href="/2025/06/08/program/2025-06-08-wxhookx64/" title="64位 微信 hook 记录">64位 微信 hook 记录</a><time datetime="2025-06-08T21:15:00.000Z" title="发表于 2025-06-08 21:15:00">2025-06-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/01/30/program/2025-01-30-LRJL/" title="懒人精灵脚本开发"><img src= "/img/loading.gif" data-lazy-src="https://image.cwxhmk.top/blog/LRJL.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="懒人精灵脚本开发"/></a><div class="content"><a class="title" href="/2025/01/30/program/2025-01-30-LRJL/" title="懒人精灵脚本开发">懒人精灵脚本开发</a><time datetime="2025-01-30T16:00:00.000Z" title="发表于 2025-01-30 16:00:00">2025-01-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/23/program/2024-12-23-webpack/" title="JS逆向之webpack处理"><img src= "/img/loading.gif" data-lazy-src="https://image.cwxhmk.top/blog/webpack.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JS逆向之webpack处理"/></a><div class="content"><a class="title" href="/2024/12/23/program/2024-12-23-webpack/" title="JS逆向之webpack处理">JS逆向之webpack处理</a><time datetime="2024-12-23T22:00:00.000Z" title="发表于 2024-12-23 22:00:00">2024-12-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/04/program/2024-12-04-wasm/" title="JS逆向之wasm处理"><img src= "/img/loading.gif" data-lazy-src="https://image.cwxhmk.top/blog/wasm.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JS逆向之wasm处理"/></a><div class="content"><a class="title" href="/2024/12/04/program/2024-12-04-wasm/" title="JS逆向之wasm处理">JS逆向之wasm处理</a><time datetime="2024-12-04T22:00:00.000Z" title="发表于 2024-12-04 22:00:00">2024-12-04</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://image.cwxhmk.top/blog/network.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By 兜里有糖</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text"><a target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral">本站由<img src= "/img/loading.gif" data-lazy-src="/img/logo5.png" class="upyun"/> 提供CDN加速</a> <div href="https://beian.miit.gov.cn/#/Integrated/index"><img class="icp-icon" src= "/img/loading.gif" data-lazy-src="/img/icp.png"><span>备案号：陕ICP备20000393号</span></div></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function loadWaline () {
+  function initWaline () {
+    const waline = new Waline(Object.assign({
+      el: '#waline-wrap',
+      serverURL: 'https://blog-weld-phi.vercel.app/',
+      avatar: 'monsterid',
+      path: location.pathname,
+      emojiCDN: '//i0.hdslb.com/bfs/emote/',
+      emojiMaps: {"tv_doge":"6ea59c827c414b4a2955fe79e0f6fd3dcd515e24.png","tv_亲亲":"a8111ad55953ef5e3be3327ef94eb4a39d535d06.png","tv_偷笑":"bb690d4107620f1c15cff29509db529a73aee261.png","tv_再见":"180129b8ea851044ce71caf55cc8ce44bd4a4fc8.png","tv_冷漠":"b9cbc755c2b3ee43be07ca13de84e5b699a3f101.png","tv_发怒":"34ba3cd204d5b05fec70ce08fa9fa0dd612409ff.png","tv_发财":"34db290afd2963723c6eb3c4560667db7253a21a.png","tv_可爱":"9e55fd9b500ac4b96613539f1ce2f9499e314ed9.png","tv_吐血":"09dd16a7aa59b77baa1155d47484409624470c77.png","tv_呆":"fe1179ebaa191569b0d31cecafe7a2cd1c951c9d.png","tv_呕吐":"9f996894a39e282ccf5e66856af49483f81870f3.png","tv_困":"241ee304e44c0af029adceb294399391e4737ef2.png","tv_坏笑":"1f0b87f731a671079842116e0991c91c2c88645a.png","tv_大佬":"093c1e2c490161aca397afc45573c877cdead616.png","tv_大哭":"23269aeb35f99daee28dda129676f6e9ea87934f.png","tv_委屈":"d04dba7b5465779e9755d2ab6f0a897b9b33bb77.png","tv_害羞":"a37683fb5642fa3ddfc7f4e5525fd13e42a2bdb1.png","tv_尴尬":"7cfa62dafc59798a3d3fb262d421eeeff166cfa4.png","tv_微笑":"70dc5c7b56f93eb61bddba11e28fb1d18fddcd4c.png","tv_思考":"90cf159733e558137ed20aa04d09964436f618a1.png","tv_惊吓":"0d15c7e2ee58e935adc6a7193ee042388adc22af.png"},
+      visitor: false,
+      dark: '[data-theme="dark"]'
+    }, null))
+  }
+
+  if (typeof Waline === 'function') initWaline() 
+  else getScript('https://cdn.jsdelivr.net/npm/@waline/client/dist/Waline.min.js').then(initWaline)
+}
+
+if ('Waline' === 'Waline' || !false) {
+  if (false) btf.loadComment(document.getElementById('waline-wrap'),loadWaline)
+  else setTimeout(loadWaline, 0)
+} else {
+  function loadOtherComment () {
+    loadWaline()
+  }
+}</script></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/gh/metowolf/MetingJS@1.2/dist/Meting.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
